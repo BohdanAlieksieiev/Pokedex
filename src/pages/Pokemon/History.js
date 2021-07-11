@@ -21,14 +21,12 @@ class History extends Component{
     }
 
     componentDidMount() {
-        console.log(this.props);
         this.getPokemonFromHistory()
     }
 
     getPokemonFromHistory = () => {
         const { historyPokemon } = this.props
         if(historyPokemon) {
-            console.log(historyPokemon);
             historyPokemon.forEach(( item ) => {
                 let arrPokemons = this.state.pokemons
                 let newObjPokemon = {

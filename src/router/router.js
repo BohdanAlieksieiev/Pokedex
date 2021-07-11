@@ -16,6 +16,9 @@ const { Content } = Layout;
 
 
 export default class RouterJS extends Component {
+    state = {
+
+    }
 
     render(){
         return (

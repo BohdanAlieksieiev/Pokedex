@@ -63,8 +63,6 @@ function reducer(state = initialState, action) {
                 let newArrHistory = [newPokemon]
                 localStorage.setItem("historyPokemon", JSON.stringify(newArrHistory));
             }
-
-            console.log(state.historyPokemon);
             break;
         default:
             return state

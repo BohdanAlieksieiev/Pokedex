@@ -196,16 +196,14 @@ class MainInfo extends Component{
                                             item.key === 'moves' && (
                                                 <>
                                                     <div className='list-item-icon-margin-left-arr'>
-                                                        {item.value.map( (move, index) => {
-                                                            return <>
-                                                                <Tag
+                                                        {item.value.map( (move) => {
+                                                            return <Tag
                                                                     className="margin-around-tag cursor-pointer"
-                                                                    key={index}
+                                                                    key={move.move.name}
                                                                     onClick={() => this.showMovesModal(move.move.name)}
                                                                 >
                                                                     {this.normalizeText(move.move.name)}
                                                                 </Tag>
-                                                            </>
                                                         })}
                                                         <TableOutlined className='list-item-icon-margin-left'/>
                                                     </div>
@@ -216,16 +214,14 @@ class MainInfo extends Component{
                                             item.key === 'abilities' && (
                                                 <>
                                                     <div className='list-item-icon-margin-left-arr'>
-                                                        {item.value.map( (abilityItem, index) => {
-                                                            return <>
-                                                                <Tag
+                                                        {item.value.map( (abilityItem) => {
+                                                            return <Tag
                                                                     className="margin-around-tag cursor-pointer"
-                                                                    key={index}
+                                                                    key={abilityItem.ability.name}
                                                                     onClick={() => this.showAbilityModal(abilityItem.ability.name)}
                                                                 >
                                                                     {this.normalizeText(abilityItem.ability.name)}
                                                                 </Tag>
-                                                            </>
                                                         })}
                                                         <ThunderboltOutlined className='list-item-icon-margin-left'/>
                                                     </div>
@@ -237,15 +233,13 @@ class MainInfo extends Component{
                                                 <>
                                                     <div className='list-item-icon-margin-left-arr'>
                                                         {item.value.map( (heldItems, index) => {
-                                                            return <>
-                                                                <Tag
+                                                            return <Tag
                                                                     className="margin-around-tag cursor-pointer"
-                                                                    key={index}
+                                                                    key={heldItems.item.name}
                                                                     onClick={() => this.showHeldItemsModal(heldItems.item.name)}
                                                                 >
                                                                     {this.normalizeText(heldItems.item.name)}
                                                                 </Tag>
-                                                            </>
                                                         })}
                                                         <ShoppingOutlined className='list-item-icon-margin-left'/>
                                                     </div>
@@ -256,16 +250,14 @@ class MainInfo extends Component{
                                             item.key === 'forms' && (
                                                 <>
                                                     <div className='list-item-icon-margin-left-arr'>
-                                                        {item.value.map( (formItem, index) => {
-                                                            return <>
-                                                                <Tag
+                                                        {item.value.map( (formItem) => {
+                                                            return <Tag
                                                                     className="margin-around-tag cursor-pointer"
-                                                                    key={index}
+                                                                    key={formItem.name}
                                                                     onClick={() => this.showFormModal(formItem.name)}
                                                                 >
                                                                     {this.normalizeText(formItem.name)}
                                                                 </Tag>
-                                                            </>
                                                         })}
                                                         <ApartmentOutlined className='list-item-icon-margin-left'/>
                                                     </div>
@@ -276,16 +268,14 @@ class MainInfo extends Component{
                                             item.key === 'types' && (
                                                 <>
                                                     <div className='list-item-icon-margin-left-arr'>
-                                                        {item.value.map( (typesItem, index) => {
-                                                            return <>
-                                                                <Tag
+                                                        {item.value.map( (typesItem) => {
+                                                            return <Tag
                                                                     className="margin-around-tag cursor-pointer"
-                                                                    key={index}
+                                                                    key={typesItem.type.name}
                                                                     onClick={() => this.showTypeModal(typesItem.type.name)}
                                                                 >
                                                                     {this.normalizeText(typesItem.type.name)}
                                                                 </Tag>
-                                                            </>
                                                         })}
                                                         <TagsOutlined className='list-item-icon-margin-left'/>
                                                     </div>
@@ -296,10 +286,10 @@ class MainInfo extends Component{
                                             item.key === 'location_area_encounters' && (
                                                 <>
                                                     <div className='list-item-icon-margin-left-arr'>
-                                                        { locations.map( (locationsItem, index) => {
+                                                        { locations.map( (locationsItem) => {
                                                             return <Tag
                                                                 className="margin-around-tag cursor-pointer"
-                                                                key={index}
+                                                                key={locationsItem.location_area.name}
                                                                 onClick={() => this.showLocationModal(locationsItem.location_area.name)}
                                                             >
                                                                 {this.normalizeText(locationsItem.location_area.name)}
@@ -312,7 +302,6 @@ class MainInfo extends Component{
                                                 </>
                                             )
                                         }
-                                        {/*<div>Content</div>*/}
                                     </List.Item>
                                 )
                                 }
