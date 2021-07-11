@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
 import randomPokemon from "../../common/images/randomPokemon.png"
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import { removeFavoritePokemon, getPokemonById } from "../../services/actions/pokemons";
-import {
-    DeleteTwoTone,
-    HistoryOutlined
-} from '@ant-design/icons';
+import { DeleteTwoTone } from '@ant-design/icons';
 
 const { Header } = Layout;
 const connectDecorator = connect(
@@ -19,7 +16,7 @@ const connectDecorator = connect(
 );
 
 
-class HeaderApp extends Component{
+class NewHeaderApp extends Component{
 
     removeFavorite = () => {
         const { removeFavoritePokemon } = this.props
@@ -55,31 +52,30 @@ class HeaderApp extends Component{
                                 onClick={this.redirectOnMain}
                             />
                         </Link>
-                        {
-                            favorite && (
-                                <>
-                                    <div className="container-favorite-header">
-                                        <p onClick={this.redirectOnFavorite}>{favorite}</p>
-                                        <p className="margin-left-delete" onClick={this.removeFavorite}><DeleteTwoTone twoToneColor="red" /></p>
-                                    </div>
-                                </>
-                            )
-                        }
+                    </div>
+                    <Menu theme="dark" mode="horizontal">
+                        <Menu.Item key="favorite">
+                            {
+                                favorite && (
+                                    <>
+                                        <div className="container-favorite-header">
+                                            <p onClick={this.redirectOnFavorite}>{favorite}</p>
+                                            <p className="margin-left-delete" onClick={this.removeFavorite}><DeleteTwoTone twoToneColor="red" /></p>
+                                        </div>
+                                    </>
+                                )
+                            }
+                        </Menu.Item>
+                        <Menu.Item key="2">nav 2</Menu.Item>
+                        <Menu.Item key="3">nav 3</Menu.Item>
+                    </Menu>
 
-                        <div >
-                            <Link to="/history">
-                                <HistoryOutlined
-                                    className="history-image"
-                                />
-                            </Link>
 
-                            <img
-                                onClick={this.randomPokemon}
-                                className="logo-img-random"
-                                src={randomPokemon}
-                                alt="random pokemon"/>
-                        </div>
-
+                    <div onClick={this.randomPokemon}>
+                        <img
+                            className="logo-img-random"
+                            src={randomPokemon}
+                            alt="random pokemon"/>
                     </div>
                 </Header>
             </>
@@ -87,5 +83,5 @@ class HeaderApp extends Component{
     }
 }
 
-const decoratedComponent = connectDecorator(HeaderApp)
-export {decoratedComponent as HeaderApp};
+const decoratedComponent = connectDecorator(NewHeaderApp)
+export {decoratedComponent as NewHeaderApp};

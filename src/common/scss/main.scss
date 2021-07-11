@@ -1,7 +1,7 @@
 
 .min-height-100vh{
   min-height: 100vh;
-  padding: 10px;
+
 }
 
 .center-on-the-page{
@@ -18,4 +18,115 @@
 
 .pagination-margin{
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.logo{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img{
+  cursor: pointer;
+  width: 150px;
+  height: 100%;
+}
+
+.logo-img-random{
+  cursor: pointer;
+  width: 50px;
+  height: 100%;
+}
+
+.site-layout-content {
+  padding: 48px;
+}
+
+.carousel-item {
+  height: 500px;
+  width: 500px;
+  color: #fff;
+
+  text-align: center;
+  //background: #364d79;
+  // #141414
+  background: rgba(255, 255, 255, 0.5);
+  margin: 10px;
+}
+
+.carousel-size{
+  width: 500px;
+}
+
+.char-radar-bg{
+  background: white;
+  padding: 20px;
+}
+
+.container-favorite-header{
+  display: flex;
+}
+
+.margin-left-delete{
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.margin-left-not-exist{
+  margin-left: 10px;
+}
+
+.LoadingPokemonImg{
+  height: 100%;
+  width: 150px;
+}
+
+.list-item-icon-margin-left{
+  margin-left: 10px;
+}
+
+.list-item-icon-margin-left-arr{
+  margin-left: 100px;
+}
+
+.margin-around-tag{
+  margin: 5px;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.pokemon-container-carousel-stats{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pokemon-stats-size{
+  width: 500px;
+  height: 500px;
+}
+
+.margin-block-in-container-in-pokemon{
+  margin: 5px;
+}
+
+.history-image{
+  margin-right: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.history-image:hover {
+  background: rgba(27, 43, 43, 0.38);
 }
