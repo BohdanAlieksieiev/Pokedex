@@ -28,14 +28,14 @@ class HeaderApp extends Component{
 
     redirectOnFavorite = () => {
         const { favorite } = this.props
-        window.location.href = "/pokemon/" + favorite
+        window.location.href = "/Pokedex/pokemon/" + favorite
     }
 
     randomPokemon = async () => {
         const { count } = this.props
         const randomId = Math.floor( Math.random() * count)
         const randomPokemon = await this.props.getPokemonById(randomId)
-        window.location.href = "/pokemon/" + randomPokemon.name
+        window.location.href = "/Pokedex/pokemon/" + randomPokemon.name
     }
 
     render(){
@@ -46,7 +46,7 @@ class HeaderApp extends Component{
                 <Header>
                     <div className="logo">
                         <Link
-                            to="/"
+                            to="/Pokedex/"
                         >
                             <img
                                 className="logo-img"
@@ -67,7 +67,7 @@ class HeaderApp extends Component{
                         }
 
                         <div >
-                            <Link to="/history">
+                            <Link to="/Pokedex/history">
                                 <HistoryOutlined
                                     className="history-image"
                                 />

@@ -63,7 +63,7 @@ class PokemonCard extends Component{
 
     goToPageInPokemon = () => {
         const { pokemon, history } = this.props
-        history.push('/pokemon/' + pokemon.name)
+        history.push('/Pokedex/pokemon/' + pokemon.name)
     }
 
     addToFavorite = () => {

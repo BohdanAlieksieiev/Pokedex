@@ -25,7 +25,7 @@ class Pokemon extends Component{
     getPokemon = async () => {
         const res = await this.props.getPokemonByName(this.props.match.params.name)
         if(res.name === "Error") {
-            this.props.history.push('/')
+            this.props.history.push('/Pokedex/')
         }else{
             await this.setState({ pokemon: res })
             await this.getAllImage()

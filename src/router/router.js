@@ -29,11 +29,11 @@ export default class RouterJS extends Component {
                     </Affix>
                     <Content className="min-height-100vh">
                         <Switch>
-                            <Route path="/?page=:page&limit=:limit"  component={IndexPage}/>
-                            <Route path="/pokemon/:name"  component={Pokemon}/>
-                            <Route path="/history"  component={History}/>
-                            <Route path="/page=:page"  component={IndexPage}/>
-                            <Route path="/"  component={IndexPage}/>
+                            <Route path="/Pokedex/?page=:page&limit=:limit"  component={IndexPage}/>
+                            <Route path="/Pokedex/pokemon/:name"  component={Pokemon}/>
+                            <Route path="/Pokedex/history"  component={History}/>
+                            <Route path="/Pokedex/page=:page"  component={IndexPage}/>
+                            <Route path="/Pokedex/"  component={IndexPage}/>
                             <Route  component={NotFound}/>
                         </Switch>
                     </Content>
