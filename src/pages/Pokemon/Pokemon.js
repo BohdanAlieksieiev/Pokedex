@@ -23,13 +23,14 @@ class Pokemon extends Component{
     }
 
     getPokemon = async () => {
+        const { match } = this.props 
         const res = await this.props.getPokemonByName(this.props.match.params.name)
         if(res.name === "Error") {
-            this.props.history.push('/Pokedex/')
+            this.props.history.push('/')
         }else{
             await this.setState({ pokemon: res })
             await this.getAllImage()
-            this.props.addPokemonToHistory(this.props.match.params.name)
+            this.props.addPokemonToHistory(match.params.name)
             this.setState({ loading: false })
         }
     }

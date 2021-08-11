@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { Layout } from 'antd';
+import { Layout, Tooltip } from 'antd';
 import randomPokemon from "../../common/images/randomPokemon.png"
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
+import { withRouter } from "react-router";
 import { removeFavoritePokemon, getPokemonById } from "../../services/actions/pokemons";
 import {
     DeleteTwoTone,
@@ -27,15 +28,17 @@ class HeaderApp extends Component{
     }
 
     redirectOnFavorite = () => {
-        const { favorite } = this.props
-        window.location.href = "/Pokedex/pokemon/" + favorite
+        const { favorite, history } = this.props
+        history.push("/pokemon/" + favorite)
+        //window.location.href = "/pokemon/" + favorite
     }
 
     randomPokemon = async () => {
-        const { count } = this.props
+        const { count, history } = this.props
         const randomId = Math.floor( Math.random() * count)
         const randomPokemon = await this.props.getPokemonById(randomId)
-        window.location.href = "/Pokedex/pokemon/" + randomPokemon.name
+        history.push("/pokemon/" + randomPokemon.name)
+        //window.location.href = "/pokemon/" + randomPokemon.name
     }
 
     render(){
@@ -46,7 +49,7 @@ class HeaderApp extends Component{
                 <Header>
                     <div className="logo">
                         <Link
-                            to="/Pokedex/"
+                            to="/"
                         >
                             <img
                                 className="logo-img"
@@ -59,25 +62,32 @@ class HeaderApp extends Component{
                             favorite && (
                                 <>
                                     <div className="container-favorite-header">
-                                        <p onClick={this.redirectOnFavorite}>{favorite}</p>
-                                        <p className="margin-left-delete" onClick={this.removeFavorite}><DeleteTwoTone twoToneColor="red" /></p>
+                                        <Tooltip placement="bottom" title="Go to favorite pokemon">
+                                            <Link to={"/pokemon/" + favorite}>{favorite}</Link>
+                                        </Tooltip>
+                                        <Tooltip placement="bottom" title="Delete favorite pokemon">
+                                            <p className="margin-left-delete" onClick={this.removeFavorite}><DeleteTwoTone twoToneColor="red" /></p>    
+                                        </Tooltip>            
                                     </div>
                                 </>
                             )
                         }
 
                         <div >
-                            <Link to="/Pokedex/history">
+                            <Link to="/history">
+                                History
                                 <HistoryOutlined
                                     className="history-image"
                                 />
                             </Link>
 
-                            <img
-                                onClick={this.randomPokemon}
-                                className="logo-img-random"
-                                src={randomPokemon}
-                                alt="random pokemon"/>
+                            <Tooltip placement="bottom" title="Random pokemon">
+                                <img
+                                    onClick={this.randomPokemon}
+                                    className="logo-img-random"
+                                    src={randomPokemon}
+                                    alt="random pokemon"/>
+                            </Tooltip>
                         </div>
 
                     </div>
@@ -87,5 +97,6 @@ class HeaderApp extends Component{
     }
 }
 
-const decoratedComponent = connectDecorator(HeaderApp)
+// const decoratedComponent = connectDecorator(HeaderApp)
+const decoratedComponent = withRouter(connectDecorator(HeaderApp))
 export {decoratedComponent as HeaderApp};

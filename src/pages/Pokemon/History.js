@@ -47,8 +47,7 @@ class History extends Component{
                 {
                     loading && ( <Loading/> )
                 }
-
-
+                
                 {
                     !loading && (
                         <>

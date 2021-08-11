@@ -63,7 +63,7 @@ class IndexPage extends Component{
 
     setPaginationLimit = (newLimit) => {
         const { page } = this.state.pagination
-        let newPath = '/Pokedex/?page=' + page + '&limit=' + newLimit
+        let newPath = '/?page=' + page + '&limit=' + newLimit
         this.setState({ pagination: {
                 ...this.state.pagination,
                 limit: newLimit
@@ -74,7 +74,7 @@ class IndexPage extends Component{
 
     setPaginationCurrent = (newCurrent) => {
         const { limit } = this.state.pagination
-        let newPath = '/Pokedex/?page=' + newCurrent
+        let newPath = '/?page=' + newCurrent
         newPath += (limit) ? ('&limit=' + limit) : ''
         this.setState({ pagination: {
                 ...this.state.pagination,

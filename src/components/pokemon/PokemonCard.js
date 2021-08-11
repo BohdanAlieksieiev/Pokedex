@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { Card, Image } from 'antd';
+import { Card, Image, Tooltip } from 'antd';
 import { CheckOutlined, StarOutlined, StarTwoTone } from '@ant-design/icons';
 import {getPokemon, removeFavoritePokemon, setFavoritePokemon} from "../../services/actions/pokemons";
 import PokemonCardLoading from "./PokemonCardLoading";
@@ -19,7 +19,7 @@ const connectDecorator = connect(
 class PokemonCard extends Component{
     state = {
         pokemon: null,
-        styleWidth: 300,
+        styleWidth: 320,
         imageWidth: 300,
         loading: true,
         sprites: null,
@@ -63,7 +63,7 @@ class PokemonCard extends Component{
 
     goToPageInPokemon = () => {
         const { pokemon, history } = this.props
-        history.push('/Pokedex/pokemon/' + pokemon.name)
+        history.push('/pokemon/' + pokemon.name)
     }
 
     addToFavorite = () => {
@@ -82,11 +82,32 @@ class PokemonCard extends Component{
         const favorite = this.props.favorite
         let pokemonAction = []
         if(favorite === name) {
-            pokemonAction.push(<StarTwoTone twoToneColor="#52c41a" key="favorite" onClick={this.addToFavorite}/>)
+            pokemonAction.push(
+                <>
+                    <Tooltip onClick={this.addToFavorite} placement="bottom" title="This Pokemon is already found in the favorites, when pressed, the Pokemon is removed from the favorites">
+                        <span className="span-margin">Remove from favorite</span>
+                        <StarTwoTone twoToneColor="#52c41a" key="favorite" />
+                    </Tooltip>
+                </>
+            )
         }else{
-            pokemonAction.push(<StarOutlined key="favorite" onClick={this.addToFavorite}/>)
+            pokemonAction.push(
+                <>
+                    <Tooltip onClick={this.addToFavorite} placement="bottom" title="Add this Pokemon to your favorites. Favorite Pokemon will be displayed at the top of the navigation bar, and your favorite Pokemon will be compared on the chart with other Pokemon">
+                        <span className="span-margin">Add to favorite</span>
+                        <StarOutlined key="favorite" />
+                    </Tooltip>
+                </>
+            )
         }
-        pokemonAction.push(<CheckOutlined key="accept" onClick={this.goToPageInPokemon}/>)
+        pokemonAction.push(
+            <>
+                <Tooltip placement="bottom" title="Go to the Pokemon page for more details" onClick={this.goToPageInPokemon}>
+                    <span className="span-margin">Show pokemon</span>
+                    <CheckOutlined key="accept" />
+                </Tooltip>
+            </>
+        )
 
         return (
 
